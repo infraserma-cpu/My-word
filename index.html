@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -6,68 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ezzedine | Infraserma Tech</title>
     <style>
-        :root { --primary: #00ff88; --bg: #0f172a; --accent: #3b82f6; }
-        body { background: var(--bg); color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px 0; overflow-x: hidden; }
+        :root { --primary: #00ff88; --bg: #050a15; --accent: #3b82f6; }
+        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; padding-bottom: 50px; }
         
-        /* خلفية النجوم */
-        .stars-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); }
+        .container { max-width: 450px; margin: auto; padding: 20px; }
+        
+        /* كارت البروفايل */
+        .profile-card { background: linear-gradient(145deg, #0f172a, #1e293b); border-radius: 30px; padding: 25px; text-align: center; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        #clock { font-size: 3.2rem; font-weight: bold; color: var(--primary); text-shadow: 0 0 20px rgba(0,255,136,0.3); }
 
-        .container { max-width: 450px; margin: auto; padding: 15px; }
+        /* رسم دياكرام افتراضي بالـ CSS */
+        .tech-monitor { background: #000; border: 2px solid #334155; border-radius: 15px; padding: 15px; margin-top: 25px; position: relative; overflow: hidden; }
+        .tech-monitor::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,136,0.05) 3px); pointer-events: none; }
+        .bar-container { display: flex; align-items: flex-end; justify-content: space-around; height: 60px; margin-top: 10px; }
+        .bar { width: 15px; background: var(--primary); border-radius: 3px 3px 0 0; animation: bounce 1.5s infinite ease-in-out; }
         
-        .profile-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border-radius: 25px; padding: 25px; text-align: center; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
-        #clock { font-size: 3rem; font-weight: bold; color: var(--primary); margin: 10px 0; text-shadow: 0 0 15px rgba(0,255,136,0.4); }
-        
-        .info-card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 15px; margin-top: 20px; text-align: right; border-right: 4px solid var(--primary); }
-        .info-card h3 { margin: 0 0 10px 0; color: var(--primary); font-size: 18px; }
-        .info-card p { margin: 0; font-size: 14px; color: #cbd5e1; line-height: 1.5; }
+        @keyframes bounce { 0%, 100% { height: 30%; } 50% { height: 80%; } }
 
-        .btn { display: flex; align-items: center; justify-content: center; padding: 15px; margin: 15px 0; border-radius: 15px; text-decoration: none; color: white; font-weight: bold; transition: 0.3s; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
-        .btn-wa { background: #25D366; border: none; }
-        
-        .ad-slot { margin: 25px 0; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 20px; min-height: 120px; border: 1px dashed #475569; }
-        
-        footer { text-align: center; font-size: 12px; color: #64748b; margin-top: 30px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .stat-box { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; text-align: center; font-size: 12px; }
+        .stat-val { display: block; font-weight: bold; color: var(--accent); font-size: 16px; }
+
+        .btn { display: block; padding: 15px; margin: 20px 0; border-radius: 15px; text-decoration: none; color: white; font-weight: bold; background: #25D366; text-align: center; }
+        .ad-space { margin: 20px 0; min-height: 100px; background: rgba(255,255,255,0.02); border-radius: 15px; border: 1px dashed #334155; }
     </style>
 </head>
 <body>
-    <div class="stars-container"></div>
-
     <div class="container">
         <div class="profile-card">
-            <div id="greeting" style="font-weight: bold; color: var(--accent);">جاري التحميل...</div>
+            <div id="greeting" style="color: var(--accent); font-size: 14px;">Infraserma Lab ⚡</div>
             <div id="clock">00:00:00</div>
-            <h1 style="margin: 5px 0; font-size: 28px;">عز الدين</h1>
-            <p style="color: #94a3b8; margin-top: 0;">خبير التقنية والإلكترونيات | فاس</p>
-            
-            <a href="https://wa.me/212661680524" class="btn btn-wa">📱 تواصل معي واتساب</a>
+            <h2 style="margin: 10px 0;">عز الدين</h2>
+            <p style="color: #94a3b8; font-size: 14px;">متخصص في الأنظمة المدمجة وميكانيك السيارات</p>
         </div>
 
-        <div class="info-card">
-            <h3>🛠️ مشروع اليوم: Arduino</h3>
-            <p>برمجة لوحات P10 SMD للإعلانات وتعديل أنظمة التحكم في المحركات بدقة عالية.</p>
+        <div class="tech-monitor">
+            <span style="font-size: 11px; color: var(--primary); font-family: monospace;">> SYSTEM_MONITOR: ACTIVE</span>
+            <div class="bar-container">
+                <div class="bar" style="animation-delay: 0.1s"></div>
+                <div class="bar" style="animation-delay: 0.3s"></div>
+                <div class="bar" style="animation-delay: 0.2s"></div>
+                <div class="bar" style="animation-delay: 0.4s"></div>
+                <div class="bar" style="animation-delay: 0.5s"></div>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-box">Arduino CPU<span class="stat-val" id="cpu-val">45%</span></div>
+                <div class="stat-box">OBDII Connection<span class="stat-val" style="color: #25D366;">READY</span></div>
+            </div>
         </div>
 
-        <div class="ad-slot">
+        <a href="https://wa.me/212661680524" class="btn">📱 تواصل لطلب الخدمات</a>
+
+        <div class="ad-space">
             <script async="async" data-cfasync="false" src="https://pl29421713.profitablecpmratenetwork.com/70099a1518bd10ece70abdd0eb3f4d23/invoke.js"></script>
             <div id="container-70099a1518bd10ece70abdd0eb3f4d23"></div>
         </div>
 
-        <div class="info-card" style="border-right-color: var(--accent);">
-            <h3>🚗 عالم Peugeot 407</h3>
-            <p>حلول مشاكل النظام الإلكتروني (Anti-theft) وصيانة GPS والأنظمة الميكانيكية للأسد الفرنسي.</p>
+        <div style="padding: 15px; background: rgba(255,255,255,0.05); border-radius: 15px; font-size: 14px; line-height: 1.6;">
+            <h3 style="color: var(--primary); margin-top: 0;">لماذا Infraserma؟</h3>
+            نقدم حلولاً مبتكرة في برمجة اللوحات الإعلانية، صيانة إلكترونيات السيارات، وتطوير أنظمة التحكم الآلي بمدينة فاس.
         </div>
-
-        <footer>Infraserma Tech © 2026<br>Fez, Morocco</footer>
     </div>
 
     <script>
         function update() {
             const now = new Date();
             document.getElementById('clock').innerText = now.toLocaleTimeString('ar-MA', { hour12: false });
-            const h = now.getHours();
-            let msg = (h >= 5 && h < 12) ? "صباح الخير يا بطل ☀️" : (h >= 12 && h < 18) ? "طاب مساؤك ☕" : "ليلة سعيدة وهادئة ✨";
-            document.getElementById('greeting').innerText = msg;
+            // تحريك أرقام عشوائية باش يبان السيستم خدام
+            document.getElementById('cpu-val').innerText = Math.floor(Math.random() * (60 - 30) + 30) + "%";
         }
         setInterval(update, 1000); update();
     </script>
