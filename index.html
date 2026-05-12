@@ -1,63 +1,59 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infraserma App</title>
-    
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#050a15">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/7133/7133312.png">
-
+    <title>Infraserma Pro</title>
     <style>
         :root { --primary: #00ff88; --bg: #050a15; --accent: #3b82f6; }
-        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; padding: 0; }
-        .app-container { max-width: 450px; margin: auto; min-height: 100vh; display: flex; flex-direction: column; }
+        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; }
+        .app-container { max-width: 450px; margin: auto; padding: 15px; }
         
-        /* الهيدر بحال الأبليكاسيون */
-        .app-header { background: #0f172a; padding: 20px; text-align: center; border-bottom: 1px solid #1e293b; border-radius: 0 0 25px 25px; }
-        #clock { font-size: 2.5rem; font-weight: bold; color: var(--primary); }
+        .header { background: #0f172a; padding: 15px; border-radius: 0 0 20px 20px; text-align: center; border-bottom: 2px solid var(--primary); }
+        #clock { font-size: 2.2rem; font-weight: bold; color: var(--primary); }
 
-        .content { padding: 20px; flex-grow: 1; }
+        /* إشعار التحديث الوهمي لجلب النقرات */
+        .update-alert { background: var(--accent); color: white; padding: 8px; font-size: 12px; text-align: center; border-radius: 10px; margin: 10px 0; animation: pulse 2s infinite; cursor: pointer; }
+        @keyframes pulse { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
+
+        .card { background: #1e293b; border-radius: 15px; padding: 15px; margin-top: 15px; position: relative; }
+        .card h3 { margin: 0 0 10px 0; font-size: 16px; color: var(--primary); }
         
-        .card { background: #1e293b; border-radius: 20px; padding: 15px; margin-bottom: 20px; border-left: 5px solid var(--accent); }
-        .card h3 { margin: 0 0 10px 0; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+        /* زر تحميل وهمي يوجه للإعلان */
+        .btn-download { display: inline-block; background: #334155; color: var(--primary); padding: 5px 15px; border-radius: 5px; font-size: 12px; text-decoration: none; border: 1px solid var(--primary); margin-top: 10px; }
 
-        .btn-install { background: var(--primary); color: #000; padding: 12px; border-radius: 12px; text-align: center; font-weight: bold; text-decoration: none; display: block; margin: 10px 0; font-size: 14px; }
-
-        .ad-box { background: rgba(0,0,0,0.4); border-radius: 15px; padding: 10px; min-height: 100px; margin-top: 10px; border: 1px dashed #334155; }
+        .ad-container { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 5px; margin: 15px 0; border: 1px solid #334155; min-height: 150px; }
     </style>
 </head>
 <body>
 
 <div class="app-container">
-    <div class="app-header">
-        <div style="font-size: 12px; color: var(--accent); margin-bottom: 5px;">INFRASERMA OS v1.0</div>
+    <div class="header">
+        <div style="font-size: 11px; color: #94a3b8;">INFRASERMA ENGINE v2.0</div>
         <div id="clock">00:00:00</div>
     </div>
 
-    <div class="content">
-        <div class="card">
-            <h3>🛠️ Arduino Lab</h3>
-            <p style="font-size: 13px; color: #94a3b8; margin: 0;">نظام التحكم في لوحات P10 وجدولة الإعلانات الذكية.</p>
-        </div>
+    <div class="update-alert">⚠️ تحديث متاح: تم إضافة أكواد Arduino جديدة (اضغط للمعاينة)</div>
 
-        <div class="ad-box">
-            <script async="async" data-cfasync="false" src="https://pl29421713.profitablecpmratenetwork.com/70099a1518bd10ece70abdd0eb3f4d23/invoke.js"></script>
-            <div id="container-70099a1518bd10ece70abdd0eb3f4d23"></div>
-        </div>
-
-        <div class="card" style="border-left-color: #f59e0b;">
-            <h3>🚗 Peugeot 407 Service</h3>
-            <p style="font-size: 13px; color: #94a3b8; margin: 0;">تشخيص أعطال BSI وتحديث خرائط RT4/RT5.</p>
-        </div>
-
-        <a href="https://wa.me/212661680524" class="btn-install">📱 طلب دعم فني مباشر</a>
-        
-        <p style="text-align: center; font-size: 11px; color: #475569;">اضغط على "إضافة إلى الشاشة الرئيسية" لتثبيت التطبيق</p>
+    <div class="card">
+        <h3>📂 مكتبة الأكواد (Arduino)</h3>
+        <p style="font-size: 13px; color: #94a3b8;">كود تشغيل شاشة P10 SMD جاهز للتحميل.</p>
+        <div class="btn-download">تحميل الملف .ino</div>
     </div>
+
+    <div class="ad-container">
+        <div style="text-align: center; font-size: 10px; color: #475569; margin-bottom: 5px;">إعلان ممول</div>
+        <script async="async" data-cfasync="false" src="https://pl29421713.profitablecpmratenetwork.com/70099a1518bd10ece70abdd0eb3f4d23/invoke.js"></script>
+        <div id="container-70099a1518bd10ece70abdd0eb3f4d23"></div>
+    </div>
+
+    <div class="card" style="border-right: 4px solid var(--accent);">
+        <h3>🚘 Peugeot 407 Expert</h3>
+        <p style="font-size: 13px; color: #94a3b8;">طريقة إعادة ضبط الـ BSI بعد تغيير البطارية.</p>
+        <div class="btn-download" style="border-color: var(--accent); color: var(--accent);">قراءة الدليل الكامل</div>
+    </div>
+
+    <a href="https://wa.me/212661680524" style="display: block; background: #25D366; color: white; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; margin-top: 20px; font-weight: bold;">تواصل مع عز الدين ⚡</a>
 </div>
 
 <script>
@@ -66,7 +62,15 @@
         document.getElementById('clock').innerText = now.toLocaleTimeString('ar-MA', { hour12: false });
     }
     setInterval(update, 1000); update();
+    
+    // حركة بسيطة: أي واحد برك على "التحديث" أو "التحميل" كيدوز للإعلان
+    document.querySelectorAll('.update-alert, .btn-download').forEach(item => {
+        item.addEventListener('click', () => {
+            window.scrollTo({ top: 200, behavior: 'smooth' });
+        });
+    });
 </script>
 
 </body>
 </html>
+
