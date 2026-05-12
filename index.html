@@ -1,60 +1,66 @@
-<style>
-    :root { --main-blue: #1e40af; --gold: #fbbf24; }
-    
-    /* خلفية كتمثل الأشغال والقوادز */
-    body { 
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                    url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80'); 
-        background-size: cover; 
-        background-attachment: fixed;
-        color: white; 
-        font-family: sans-serif;
-        margin: 0;
-    }
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Infraserma - رفع مشاريع التجهيز</title>
+    <style>
+        body { background: #0f172a; color: white; font-family: sans-serif; text-align: center; padding: 20px; }
+        .upload-section { background: #1e293b; padding: 20px; border-radius: 15px; border: 2px dashed #fbbf24; margin: 20px auto; max-width: 400px; }
+        #preview { width: 100%; max-width: 300px; border-radius: 10px; margin-top: 15px; display: none; }
+        .btn-upload { background: #fbbf24; color: #000; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
 
-    .header-logo { text-align: center; padding: 40px; }
-    .logo-img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--gold); }
+    <h1>لوحة تحكم Infraserma 🏗️</h1>
+    <p>ارفع صور مشاريع القوادز، الرخام، أو صيانة Peugeot 407</p>
 
-    .service-box {
-        background: rgba(30, 64, 175, 0.8);
-        margin: 20px;
-        padding: 25px;
-        border-right: 5px solid var(--gold);
-        border-radius: 10px;
-    }
+    <div class="upload-section">
+        <input type="file" id="imageInput" accept="image/*" style="margin-bottom: 10px;">
+        <br>
+        <button class="btn-upload" onclick="uploadImage()">رفع الصورة للموقع</button>
+        <div id="status"></div>
+        <img id="preview" src="" alt="معاينة">
+    </div>
 
-    .cta-whatsapp {
-        display: block;
-        background: #25d366;
-        text-align: center;
-        padding: 20px;
-        margin: 20px;
-        border-radius: 50px;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-    }
-</style>
+    <script>
+        async function uploadImage() {
+            const fileInput = document.getElementById('imageInput');
+            const status = document.getElementById('status');
+            const preview = document.getElementById('preview');
+            
+            if (fileInput.files.length === 0) {
+                status.innerText = "المرجو اختيار صورة أولاً!";
+                return;
+            }
 
-<div class="header-logo">
-    <!-- اللوغو ديالك غايكون هنا -->
-    <div style="font-size: 2.5rem; font-weight: bold; color: var(--gold);">INFRA<span>SERMA</span></div>
-    <p>Infrastructure Service Maroc</p>
-</div>
+            status.innerText = "جاري الرفع...";
+            const formData = new FormData();
+            formData.append('image', fileInput.files[0]);
 
-<div class="service-box">
-    <h3>🚜 قسم التجهيز والحفر</h3>
-    <p>متخصصون في حفر وتجهيز قنوات الصرف الصحي والبنية التحتية (قوادز وتجهيز الأراضي).</p>
-</div>
+            try {
+                // استعملنا الـ API Key ديالك هنا
+                const response = await fetch('https://api.imgbb.com/1/upload?key=D15da8bf11c924f88a1523a728688254', {
+                    method: 'POST',
+                    body: formData
+                });
 
-<div class="service-box">
-    <h3>🏗️ الرخام والتشطيبات</h3>
-    <p>تركيب الرخام والزليج الفاسي للدروج والواجهات بجودة عالية.</p>
-</div>
+                const result = await response.json();
 
-<div class="service-box">
-    <h3>🚗 الدعم التقني</h3>
-    <p>صيانة محركات Peugeot 407 وحلول الأردوينو الذكية.</p>
-</div>
-
-<a href="https://wa.me/2126XXXXXXXX" class="cta-whatsapp">اتصل بـ Infraserma للطلب والاستفسار</a>
+                if (result.success) {
+                    status.innerText = "تم الرفع بنجاح!";
+                    preview.src = result.data.url;
+                    preview.style.display = "block";
+                    console.log("رابط الصورة المباشر:", result.data.url);
+                    alert("تم الرفع! الرابط هو: " + result.data.url);
+                } else {
+                    status.innerText = "خطأ في الرفع، حاول مرة أخرى.";
+                }
+            } catch (error) {
+                status.innerText = "فشل الاتصال بـ ImgBB.";
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>
