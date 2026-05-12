@@ -2,87 +2,29 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infraserma Pro | بوابة التقنية</title>
+    <title>Infraserma Pro</title>
     <style>
-        :root { --primary: #00ff88; --bg: #0f172a; --card-bg: #1e293b; --text: #f8fafc; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding-bottom: 50px; }
-        header { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 20px; text-align: center; border-bottom: 2px solid var(--primary); position: sticky; top: 0; z-index: 100; }
-        #searchInput { width: 85%; padding: 12px; border-radius: 25px; border: none; background: var(--card-bg); color: white; outline: 2px solid var(--primary); margin-top: 10px; }
-        .categories { display: flex; overflow-x: auto; padding: 15px; gap: 10px; justify-content: center; }
-        .category-btn { background: var(--card-bg); border: 1px solid var(--primary); color: var(--primary); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; }
-        .container { padding: 15px; display: grid; gap: 20px; }
-        .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid #334155; transition: 0.3s; }
-        .card-img { height: 100px; background: #334155; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
-        .card-content { padding: 15px; text-align: center; }
-        .card-title { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); font-weight: bold; }
-        .btn-link { display: block; background: var(--primary); color: #000; text-align: center; padding: 12px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 10px; }
+        body { background: #0f172a; color: white; text-align: center; font-family: sans-serif; padding-top: 50px; }
+        .box { background: #1e293b; margin: 20px auto; padding: 20px; width: 80%; border-radius: 15px; border: 1px solid #00ff88; }
+        .btn { background: #00ff88; color: black; padding: 15px; display: block; text-decoration: none; font-weight: bold; border-radius: 10px; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1 style="margin:0;">Infraserma Pro <small style="font-size: 0.4em;">v2.0</small></h1>
-    <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="بحث عن كود أو ميكانيك...">
-</header>
+    <h1>مرحباً بك في Infraserma Pro</h1>
+    <p>اختر القسم الذي تريد استكشافه:</p>
 
-<div class="categories">
-    <button class="category-btn" onclick="filterSelection('all')">الكل</button>
-    <button class="category-btn" onclick="filterSelection('arduino')">أردوينو</button>
-    <button class="category-btn" onclick="filterSelection('auto')">ميكانيك</button>
-</div>
-
-<div class="container" id="cardsContainer">
-    <!-- كود شاشة P1 -->
-    <div class="card filterDiv arduino">
-        <div class="card-img">📟</div>
-        <div class="card-content">
-            <div class="card-title">كود شاشة P10 SMD</div>
-            <p>كود جاهز للتحميل والتشغيل على Arduino Nano.</p>
-            <a href="رابط_السمارت_لينك_ديالك" target="_blank" class="btn-link">تحميل الملف .ino</a>
-        </div>
+    <div class="box">
+        <h3>قسم الأردوينو والإلكترونيك</h3>
+        <p>تحميل أكواد الشاشات والحساسات جاهزة.</p>
+        <a href="رابط_السمارت_لينك_ديالك" target="_blank" class="btn">دخول القسم</a>
     </div>
 
-    <!-- ميكانيك 407 -->
-    <div class="card filterDiv auto">
-        <div class="card-img">🚗</div>
-        <div class="card-content">
-            <div class="card-title">صيانة Peugeot 407</div>
-            <p>دليل كامل لتلميع الأضواء وحلول مشاكل المحرك.</p>
-            <a href="رابط_السمارت_لينك_ديالك" target="_blank" class="btn-link">دخول الدليل</a>
-        </div>
+    <div class="box">
+        <h3>قسم ميكانيك السيارات</h3>
+        <p>حلول مشاكل Peugeot 407 وصيانتها.</p>
+        <a href="رابط_السمارت_لينك_ديالك" target="_blank" class="btn">دخول القسم</a>
     </div>
-
-    <!-- إلكترونيك -->
-    <div class="card filterDiv arduino">
-        <div class="card-img">💡</div>
-        <div class="card-content">
-            <div class="card-title">مشاريع الحساسات Sensors</div>
-            <p>مخططات Proteus لربط الحساسات مع الأردوينو.</p>
-            <a href="رابط_السمارت_لينك_ديالك" target="_blank" class="btn-link">رؤية المخطط</a>
-        </div>
-    </div>
-</div>
-
-<script>
-    function searchFunction() {
-        let input = document.getElementById('searchInput').value.toLowerCase();
-        let cards = document.getElementsByClassName('card');
-        for (let i = 0; i < cards.length; i++) {
-            let title = cards[i].querySelector('.card-title').innerText.toLowerCase();
-            cards[i].style.display = title.includes(input) ? "" : "none";
-        }
-    }
-
-    function filterSelection(c) {
-        let x = document.getElementsByClassName("filterDiv");
-        if (c == "all") c = "";
-        for (let i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-            if (x[i].className.indexOf(c) > -1) x[i].style.display = "block";
-        }
-    }
-</script>
 
 </body>
 </html>
