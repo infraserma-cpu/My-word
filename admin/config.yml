@@ -2,6 +2,8 @@ backend:
   name: github
   repo: infraserma-cpu/My-word
   branch: main
+  base_url: https://infraserma.netlify.app
+  auth_endpoint: api/auth
 
 site_url: https://infraserma.netlify.app
 
@@ -19,3 +21,4 @@ collections:
       - { label: "تاريخ المشروع", name: "date", widget: "datetime" }
       - { label: "صورة المشروع", name: "image", widget: "image" }
       - { label: "وصف العمل", name: "body", widget: "markdown" }
+      
