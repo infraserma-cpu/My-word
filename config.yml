@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: aserma-cpu/My-word
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "projects"
+    label: "المشاريع"
+    folder: "projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "عنوان المشروع", name: "title", widget: "string" }
+      - { label: "تاريخ المشروع", name: "date", widget: "datetime" }
+      - { label: "صورة المشروع", name: "image", widget: "image" }
+      - { label: "وصف العمل", name: "body", widget: "markdown" }
