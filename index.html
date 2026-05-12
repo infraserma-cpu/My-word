@@ -2,65 +2,135 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Infraserma - رفع مشاريع التجهيز</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infraserma - Infrastructure Service Maroc</title>
     <style>
-        body { background: #0f172a; color: white; font-family: sans-serif; text-align: center; padding: 20px; }
-        .upload-section { background: #1e293b; padding: 20px; border-radius: 15px; border: 2px dashed #fbbf24; margin: 20px auto; max-width: 400px; }
-        #preview { width: 100%; max-width: 300px; border-radius: 10px; margin-top: 15px; display: none; }
-        .btn-upload { background: #fbbf24; color: #000; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        :root {
+            --main-gold: #fbbf24;
+            --dark-blue: #0f172a;
+        }
+
+        body {
+            /* خلفية تعكس الأشغال العمومية والتجهيز */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80'); 
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header-section {
+            padding: 40px 0;
+        }
+
+        .logo-main {
+            width: 150px;
+            height: auto;
+            border-radius: 15px;
+            border: 3px solid var(--main-gold);
+            background: white;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            color: var(--main-gold);
+            font-size: 2.2rem;
+            margin: 15px 0 5px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.85);
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 12px;
+            border-right: 8px solid var(--main-gold);
+            text-align: right;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--main-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
 
-    <h1>لوحة تحكم Infraserma 🏗️</h1>
-    <p>ارفع صور مشاريع القوادز، الرخام، أو صيانة Peugeot 407</p>
-
-    <div class="upload-section">
-        <input type="file" id="imageInput" accept="image/*" style="margin-bottom: 10px;">
-        <br>
-        <button class="btn-upload" onclick="uploadImage()">رفع الصورة للموقع</button>
-        <div id="status"></div>
-        <img id="preview" src="" alt="معاينة">
+<div class="container">
+    <div class="header-section">
+        <!-- الرابط الذي قمت باستخراجه للوجو الشركة -->
+        <img src="https://i.ibb.co/vxrRz0g1/1000022018.jpg" alt="STE INFRASERMA" class="logo-main">
+        <h1>STE INFRASERMA</h1>
+        <p class="subtitle">Infrastructures Service Maroc</p>
     </div>
 
-    <script>
-        async function uploadImage() {
-            const fileInput = document.getElementById('imageInput');
-            const status = document.getElementById('status');
-            const preview = document.getElementById('preview');
-            
-            if (fileInput.files.length === 0) {
-                status.innerText = "المرجو اختيار صورة أولاً!";
-                return;
-            }
+    <div class="card">
+        <h2>🚜 قسم التجهيز والحفر</h2>
+        <p>متخصصون في حفر وتجهيز قنوات الصرف الصحي (القوادز) وبناء البنية التحتية الأساسية للمشاريع العمرانية والطرق.</p>
+    </div>
 
-            status.innerText = "جاري الرفع...";
-            const formData = new FormData();
-            formData.append('image', fileInput.files[0]);
+    <div class="card">
+        <h2>🏗️ الأشغال الكبرى والخرسانة</h2>
+        <p>تنفيذ مشاريع البناء والخرسانة المسلحة (Béton armé) مع الالتزام بأعلى المعايير التقنية والهندسية.</p>
+    </div>
 
-            try {
-                // استعملنا الـ API Key ديالك هنا
-                const response = await fetch('https://api.imgbb.com/1/upload?key=D15da8bf11c924f88a1523a728688254', {
-                    method: 'POST',
-                    body: formData
-                });
+    <div class="card">
+        <h2>🏛️ الرخام والتشطيبات الفاخرة</h2>
+        <p>تركيب الرخام والزليج الفاسي الأصيل للأدراج والواجهات، نجمع بين الدقة المتناهية والجمالية المغربية العريقة.</p>
+    </div>
 
-                const result = await response.json();
+    <!-- يمكنك وضع رقم هاتفك مكان 212600000000 -->
+    <a href="https://wa.me/212661680524" class="whatsapp-btn">تواصل مع الإدارة للطلب أو الاستفسار</a>
 
-                if (result.success) {
-                    status.innerText = "تم الرفع بنجاح!";
-                    preview.src = result.data.url;
-                    preview.style.display = "block";
-                    console.log("رابط الصورة المباشر:", result.data.url);
-                    alert("تم الرفع! الرابط هو: " + result.data.url);
-                } else {
-                    status.innerText = "خطأ في الرفع، حاول مرة أخرى.";
-                }
-            } catch (error) {
-                status.innerText = "فشل الاتصال بـ ImgBB.";
-                console.error(error);
-            }
-        }
-    </script>
+    <footer>
+        &copy; 2026 Infraserma - جميع الحقوق محفوظة لشركة Infrastructures Service Maroc
+    </footer>
+</div>
+
 </body>
 </html>
