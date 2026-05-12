@@ -3,7 +3,7 @@ backend:
   repo: infraserma-cpu/My-word
   branch: main
 
-site_url: [https://infraserma.netlify.app](https://infraserma.netlify.app)
+site_url: https://infraserma.netlify.app
 media_folder: "images"
 public_folder: "/images"
 
