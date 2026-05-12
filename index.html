@@ -1,49 +1,60 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infraserma Pro | بوابة التقنية</title>
-    <style>
-        :root { --primary: #00ff88; --bg: #0f172a; --card-bg: #1e293b; --text: #f8fafc; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding-bottom: 50px; }
-        header { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 20px; text-align: center; border-bottom: 2px solid var(--primary); position: sticky; top: 0; z-index: 100; }
-        .container { padding: 15px; display: grid; gap: 20px; }
-        .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid #334155; }
-        .card-img { height: 100px; background: #334155; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
-        .card-content { padding: 15px; text-align: center; }
-        .card-title { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); font-weight: bold; }
-        .btn-link { display: block; background: var(--primary); color: #000; text-align: center; padding: 12px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 10px; }
-    </style>
-</head>
-<body>
+<style>
+    :root { --main-blue: #1e40af; --gold: #fbbf24; }
+    
+    /* خلفية كتمثل الأشغال والقوادز */
+    body { 
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                    url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80'); 
+        background-size: cover; 
+        background-attachment: fixed;
+        color: white; 
+        font-family: sans-serif;
+        margin: 0;
+    }
 
-<header>
-    <h1 style="margin:0;">Infraserma Pro <small style="font-size: 0.4em;">v2.0</small></h1>
-    <p>بوابتك لأكواد الأردوينو وصيانة السيارات</p>
-</header>
+    .header-logo { text-align: center; padding: 40px; }
+    .logo-img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--gold); }
 
-<div class="container">
-    <!-- كود شاشة P10 -->
-    <div class="card">
-        <div class="card-img">📟</div>
-        <div class="card-content">
-            <div class="card-title">كود شاشة P10 SMD</div>
-            <p>كود جاهز للتحميل والتشغيل على Arduino Nano.</p>
-            <a href="https://www.profitablecpmratenetwork.com/b4xua3f8k?key=e9415f32fc7dfacf46071e5beb238d3d" target="_blank" rel="noopener noreferrer" class="btn-link">تحميل الملف .ino</a>
-        </div>
-    </div>
+    .service-box {
+        background: rgba(30, 64, 175, 0.8);
+        margin: 20px;
+        padding: 25px;
+        border-right: 5px solid var(--gold);
+        border-radius: 10px;
+    }
 
-    <!-- ميكانيك 407 -->
-    <div class="card">
-        <div class="card-img">🚗</div>
-        <div class="card-content">
-            <div class="card-title">صيانة Peugeot 407</div>
-            <p>دليل كامل لتلميع الأضواء وحلول مشاكل المحرك.</p>
-            <a href="https://www.profitablecpmratenetwork.com/b4xua3f8k?key=e9415f32fc7dfacf46071e5beb238d3d" target="_blank" rel="noopener noreferrer" class="btn-link">دخول الدليل</a>
-        </div>
-    </div>
+    .cta-whatsapp {
+        display: block;
+        background: #25d366;
+        text-align: center;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 50px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+
+<div class="header-logo">
+    <!-- اللوغو ديالك غايكون هنا -->
+    <div style="font-size: 2.5rem; font-weight: bold; color: var(--gold);">INFRA<span>SERMA</span></div>
+    <p>Infrastructure Service Maroc</p>
 </div>
 
-</body>
-</html>
+<div class="service-box">
+    <h3>🚜 قسم التجهيز والحفر</h3>
+    <p>متخصصون في حفر وتجهيز قنوات الصرف الصحي والبنية التحتية (قوادز وتجهيز الأراضي).</p>
+</div>
+
+<div class="service-box">
+    <h3>🏗️ الرخام والتشطيبات</h3>
+    <p>تركيب الرخام والزليج الفاسي للدروج والواجهات بجودة عالية.</p>
+</div>
+
+<div class="service-box">
+    <h3>🚗 الدعم التقني</h3>
+    <p>صيانة محركات Peugeot 407 وحلول الأردوينو الذكية.</p>
+</div>
+
+<a href="https://wa.me/2126XXXXXXXX" class="cta-whatsapp">اتصل بـ Infraserma للطلب والاستفسار</a>
