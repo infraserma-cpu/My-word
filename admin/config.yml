@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: aserma-cpu/My-word
+  repo: infraserma-cpu/My-word
   branch: main
 
 media_folder: "images"
