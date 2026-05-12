@@ -3,61 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infraserma Pro v2.1</title>
+    <title>Infraserma Pro v2.0</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #00ff88; --bg: #050a15; --accent: #3b82f6; }
-        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; }
-        .app-container { max-width: 450px; margin: auto; padding: 15px; }
-        .header { background: #0f172a; padding: 15px; border-radius: 0 0 20px 20px; text-align: center; border-bottom: 2px solid var(--primary); }
-        #clock { font-size: 2.2rem; font-weight: bold; color: var(--primary); }
-        .update-alert { background: var(--accent); color: white; padding: 10px; font-size: 13px; text-align: center; border-radius: 10px; margin: 10px 0; animation: pulse 2s infinite; cursor: pointer; text-decoration: none; display: block; font-weight: bold; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
-        .card { background: #1e293b; border-radius: 15px; padding: 15px; margin-top: 15px; border: 1px solid #334155; }
-        .card h3 { margin: 0 0 10px 0; font-size: 16px; color: var(--primary); }
-        .btn-link { display: inline-block; background: var(--primary); color: #050a15; padding: 8px 20px; border-radius: 8px; font-size: 14px; text-decoration: none; margin-top: 10px; font-weight: bold; }
-        .ad-container { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 10px; margin: 15px 0; text-align: center; }
+        :root {
+            --primary: #00ff88;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding-bottom: 50px;
+        }
+        header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .search-container {
+            margin: 15px auto;
+            max-width: 90%;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            background: var(--card-bg);
+            color: white;
+            outline: 2px solid var(--primary);
+        }
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+            gap: 10px;
+            scrollbar-width: none;
+        }
+        .category-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .container {
+            padding: 15px;
+            display: grid;
+            gap: 20px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .card-img { height: 150px; background: #334155; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--primary); }
+        .card-content { padding: 15px; }
+        .card-title { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary); }
+        .btn-link {
+            display: block;
+            background: var(--primary);
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
-<div class="app-container">
-    <div class="header">
-        <div style="font-size: 11px; color: #94a3b8;">INFRASERMA ENGINE v2.1</div>
-        <div id="clock">00:00:00</div>
+<header>
+    <h1>Infraserma Pro <small style="font-size: 0.5em;">v2.0</small></h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="بحث عن كود، ميكانيك، أو مشروع...">
+    </div>
+</header>
+
+<div class="categories">
+    <button class="category-btn" onclick="filterSelection('all')">الكل</button>
+    <button class="category-btn" onclick="filterSelection('arduino')">أردوينو</button>
+    <button class="category-btn" onclick="filterSelection('auto')">ميكانيك 407</button>
+    <button class="category-btn" onclick="filterSelection('hardware')">إلكترونيك</button>
+</div>
+
+<div class="container" id="cardsContainer">
+    <!-- Card 1: Arduino -->
+    <div class="card filterDiv arduino">
+        <div class="card-img"><i class="microchip"></i> 📟</div>
+        <div class="card-content">
+            <div class="card-title">كود شاشة P10 SMD واجد</div>
+            <p>أفضل كود لتشغيل شاشات P10 باستعمال Arduino Nano.</p>
+            <a href="رابط_السمارت_لينك_ديالك" class="btn-link">تحميل الكود .ino</a>
+        </div>
     </div>
 
-    <!-- زر التحديث مربوط بالرابط ديالك -->
-    <a href="https://www.profitablecpmratenetwork.com/b4xua3f8k?key=e9415f32fc7dfacf46071e5beb238d3d" class="update-alert">
-        ⚠️ تحديث متاح: تم إضافة أكواد Arduino جديدة (اضغط هنا)
-    </a>
-
-    <div class="card">
-        <h3>📂 مكتبة الأكواد (Arduino)</h3>
-        <p style="font-size: 13px; color: #94a3b8;">كود تشغيل شاشة P10 SMD النسخة النهائية.</p>
-        <a href="https://www.profitablecpmratenetwork.com/b4xua3f8k?key=e9415f32fc7dfacf46071e5beb238d3d" class="btn-link">تحميل ملف .ino</a>
+    <!-- Card 2: Auto -->
+    <div class="card filterDiv auto">
+        <div class="card-img">🚗</div>
+        <div class="card-content">
+            <div class="card-title">دليل Peugeot 407: تلميع الأضواء</div>
+            <p>طريقة احترافية لتلميع أضواء السيارة باستعمال ورق الصنفرة.</p>
+            <a href="رابط_السمارت_لينك_ديالك" class="btn-link">قراءة الدليل</a>
+        </div>
     </div>
 
-    <!-- إعلان البانر اللي درنا قبل -->
-    <div class="ad-container">
-        <script async="async" data-cfasync="false" src="https://pl29421713.profitablecpmratenetwork.com/70099a1518bd10ece70abdd0eb3f4d23/invoke.js"></script>
-        <div id="container-70099a1518bd10ece70abdd0eb3f4d23"></div>
+    <!-- Card 3: Hardware -->
+    <div class="card filterDiv hardware">
+        <div class="card-img">💡</div>
+        <div class="card-content">
+            <div class="card-title">تحويل باور سبلاي PC لشاحن</div>
+            <p>كيفاش تستغل Power Supply قديمة وتخرج منها 12v و 5v.</p>
+            <a href="رابط_السمارت_لينك_ديالك" class="btn-link">مشاهدة المخطط</a>
+        </div>
     </div>
-
-    <div class="card" style="border-right: 4px solid var(--accent);">
-        <h3>🚘 Peugeot 407 Expert</h3>
-        <p style="font-size: 13px; color: #94a3b8;">حل مشكلة تعطل نظام التعليق المفاجئ.</p>
-        <a href="https://www.profitablecpmratenetwork.com/b4xua3f8k?key=e9415f32fc7dfacf46071e5beb238d3d" class="btn-link" style="background: var(--accent); color: white;">تحميل الدليل (PDF)</a>
-    </div>
-
-    <a href="https://wa.me/212661680524" style="display: block; background: #25D366; color: white; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; margin-top: 20px; font-weight: bold;">تواصل مع عز الدين ⚡</a>
 </div>
 
 <script>
-    function update() {
-        const now = new Date();
-        document.getElementById('clock').innerText = now.toLocaleTimeString('ar-MA', { hour12: false });
+    // ميزة البحث
+    function searchFunction() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('card');
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].querySelector('.card-title').innerText.toLowerCase();
+            if (title.includes(input)) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
     }
-    setInterval(update, 1000); update();
+
+    // ميزة الفلترة
+    function filterSelection(c) {
+        let x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        for (let i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+            if (x[i].className.indexOf(c) > -1) x[i].style.display = "block";
+        }
+    }
 </script>
 
 </body>
