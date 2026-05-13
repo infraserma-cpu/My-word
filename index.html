@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STE INFRASERMA</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background: #111 no-repeat center center fixed; background-size: cover; color: white; text-align: center; transition: 0.5s; }
+        body { font-family: Arial, sans-serif; margin: 0; background: #111 no-repeat center center fixed; background-size: cover; color: white; text-align: center; }
         .overlay { background: rgba(0, 0, 0, 0.7); min-height: 100vh; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .logo-box { background: white; padding: 10px; border-radius: 15px; border: 4px solid #ffcc00; margin-top: 20px; width: 140px; }
         .logo-box img { width: 100%; height: auto; }
-        h1 { color: #ffcc00; font-size: 1.8em; margin: 15px 0; }
+        h1 { color: #ffcc00; font-size: 2em; margin: 15px 0; }
         .services-container { width: 100%; max-width: 500px; }
         .section-card { background: #1a2634; margin: 15px 0; border-radius: 15px; overflow: hidden; border-right: 8px solid #ffcc00; text-align: right; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .section-card img { width: 100%; height: 180px; object-fit: cover; display: none; }
         .card-content { padding: 15px; }
-        .card-content h3 { color: #ffcc00; margin: 0 0 8px 0; font-size: 1.2em; }
-        .card-content p { margin: 0; font-size: 0.95em; color: #ddd; line-height: 1.5; }
+        .card-content h3 { color: #ffcc00; margin: 0 0 8px 0; }
         .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 20px 0; display: inline-block; }
     </style>
 </head>
@@ -25,31 +24,23 @@
         <img src="https://i.ibb.co/dJ0dGbG0/f7643c66-93d5-45ba-8c90-7ddd5b70250e-20250619-191428-0000.png" alt="Infraserma">
     </div>
     <h1>STE INFRASERMA</h1>
-    
-    <div id="services-list" class="services-container">
-        <!-- الأقسام غتبان هنا أوتوماتيكياً -->
-    </div>
-
+    <div id="services-list" class="services-container"></div>
     <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل عبر واتساب</a>
 </div>
-
 <script>
     window.onload = function() {
-        // تحديث الخلفية من الذاكرة
+        // تحديث الخلفية
         const bg = localStorage.getItem('siteBg');
         if (bg) document.body.style.backgroundImage = "url('" + bg + "')";
-
-        // جلب الأقسام المخزنة
+        // عرض الأقسام
         const services = JSON.parse(localStorage.getItem('siteServices') || '[]');
         const list = document.getElementById('services-list');
-        
         if(services.length === 0) {
-            list.innerHTML = '<p style="opacity:0.6">لم يتم إضافة أقسام بعد. استعمل لوحة التحكم.</p>';
+            list.innerHTML = '<div class="section-card"><div class="card-content"><h3>🚜 التجهيز والحفر</h3><p>حفر وتجهيز قنوات الصرف الصحي.</p></div></div>';
         } else {
             services.forEach(s => {
                 const card = document.createElement('div');
                 card.className = 'section-card';
-                // تظهر الصورة فقط إذا وجد رابطها
                 let imgHtml = s.img ? `<img src="${s.img}" style="display:block">` : '';
                 card.innerHTML = `${imgHtml}<div class="card-content"><h3>${s.title}</h3><p>${s.desc}</p></div>`;
                 list.appendChild(card);
