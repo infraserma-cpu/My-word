@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STE INFRASERMA</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background: #111; background-size: cover; background-position: center; background-attachment: fixed; color: white; text-align: center; }
-        .overlay { background: rgba(0, 0, 0, 0.75); min-height: 100vh; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        body { font-family: Arial, sans-serif; margin: 0; background: #111 no-repeat center center fixed; background-size: cover; color: white; text-align: center; }
+        .overlay { background: rgba(0, 0, 0, 0.7); min-height: 100vh; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .logo-box { background: white; padding: 10px; border-radius: 15px; border: 4px solid #ffcc00; margin-top: 20px; width: 140px; }
         .logo-box img { width: 100%; height: auto; }
         h1 { color: #ffcc00; font-size: 2em; margin: 15px 0; }
@@ -14,18 +14,18 @@
         .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 20px 0; display: inline-block; }
     </style>
 </head>
-<body id="main-body">
+<body>
 <div class="overlay">
     <div class="logo-box">
         <img src="https://i.ibb.co/dJ0dGbG0/f7643c66-93d5-45ba-8c90-7ddd5b70250e-20250619-191428-0000.png" alt="Infraserma">
     </div>
-    <h1 id="site-title">STE INFRASERMA</h1>
-    <div class="section-card"><h3>🚜 التجهيز والحفر</h3><p>حفر وتجهيز قنوات الصرف الصحي.</p></div>
-    <div class="section-card"><h3>🏗️ الأشغال الكبرى</h3><p>الخرسانة المسلحة وبناء المنشآت.</p></div>
+    <h1>STE INFRASERMA</h1>
+    <div class="section-card"><h3>🚜 التجهيز والحفر</h3><p>حفر وتجهيز قنوات الصرف الصحي وبناء البنية التحتية.</p></div>
+    <div class="section-card"><h3>🏗️ الأشغال الكبرى</h3><p>الخرسانة المسلحة وبناء المنشآت العمرانية.</p></div>
     <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل عبر واتساب</a>
 </div>
 <script>
-    // هاد الكود كيتسنى لوحة التحكم تصيفط ليه رابط الخلفية
+    // هاد الجزء كيجيب الخلفية اللي غتحددها في لوحة التحكم
     window.onload = function() {
         const bg = localStorage.getItem('siteBg');
         if (bg) { document.body.style.backgroundImage = "url('" + bg + "')"; }
