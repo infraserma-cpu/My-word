@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>إدارة الموقع</title>
-</head>
-<body style="text-align:center; padding:20px;">
-    <h2>إضافة خدمة</h2>
-    <input id="t" placeholder="العنوان"><br><br>
-    <textarea id="d" placeholder="الوصف"></textarea><br><br>
-    <input id="i" placeholder="رابط الصورة المباشر"><br><br>
-    <button onclick="save()">إضافة</button>
+<body style="text-align:center; font-family:Arial; padding:20px;">
+    <h2>لوحة تحكم Infraserma</h2>
+    <input id="t" placeholder="عنوان الخدمة" style="width:80%; padding:10px;"><br><br>
+    <textarea id="d" placeholder="وصف الخدمة" style="width:80%; padding:10px;"></textarea><br><br>
+    <input id="i" placeholder="رابط الصورة من ImgBB" style="width:80%; padding:10px;"><br><br>
+    <button onclick="add()" style="padding:15px 30px; background:green; color:white;">إضافة الخدمة فوراً</button>
+    <button onclick="localStorage.clear(); location.reload();" style="margin-top:20px; background:red; color:white;">مسح كل شيء</button>
+
     <script>
-        function save() {
-            const s = JSON.parse(localStorage.getItem('siteServices') || '[]');
+        function add() {
+            const s = JSON.parse(localStorage.getItem('myInfrasermaData') || '[]');
             s.push({ title: document.getElementById('t').value, desc: document.getElementById('d').value, img: document.getElementById('i').value });
-            localStorage.setItem('siteServices', JSON.stringify(s));
-            alert("تمت الإضافة! دابا سير للموقع.");
+            localStorage.setItem('myInfrasermaData', JSON.stringify(s));
+            alert("تم بنجاح! حل الموقع دابا غتلقاها زادت.");
         }
     </script>
 </body>
