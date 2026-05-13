@@ -2,38 +2,49 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STE INFRASERMA</title>
     <style>
-        body { font-family: Arial; margin: 0; background: #111; color: white; text-align: center; }
-        .overlay { padding: 20px; }
-        .section-card { background: #1a2634; margin: 15px auto; padding: 15px; border-radius: 15px; border-right: 8px solid #ffcc00; text-align: right; max-width: 500px; }
-        .section-card img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
-        .btn-whatsapp { background: #25d366; padding: 15px 30px; border-radius: 50px; display: inline-block; color: white; text-decoration: none; font-weight: bold; }
+        body { font-family: Arial, sans-serif; margin: 0; background: #111 no-repeat center center fixed; background-size: cover; color: white; text-align: center; }
+        .overlay { background: rgba(0, 0, 0, 0.7); min-height: 100vh; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .logo-box { background: white; padding: 10px; border-radius: 15px; border: 4px solid #ffcc00; margin-top: 20px; width: 140px; }
+        .logo-box img { width: 100%; height: auto; }
+        h1 { color: #ffcc00; font-size: 2em; margin: 15px 0; }
+        .services-container { width: 100%; max-width: 500px; }
+        .section-card { background: #1a2634; margin: 15px 0; border-radius: 15px; overflow: hidden; border-right: 8px solid #ffcc00; text-align: right; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .section-card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 15px; }
+        .card-content h3 { color: #ffcc00; margin: 0 0 10px 0; }
+        .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 20px 0; display: inline-block; }
     </style>
 </head>
-<body>
+<body style="background-image: url('https://i.ibb.co/6R0pY90/0714-WA0011.jpg');">
 <div class="overlay">
+    <div class="logo-box">
+        <img src="https://i.ibb.co/dJ0dGbG0/f7643c66-93d5-45ba-8c90-7ddd5b70250e-20250619-191428-0000.png" alt="Infraserma">
+    </div>
     <h1>STE INFRASERMA</h1>
-    <div id="services-list"></div>
+    
+    <div class="services-container">
+        <!-- قسم الرخام والدروج -->
+        <div class="section-card">
+            <img src="https://i.ibb.co/6R0pY90/0714-WA0011.jpg" alt="تركيب الرخام">
+            <div class="card-content">
+                <h3>🏗️ إتقان تركيب الرخام والدرج الفاخر</h3>
+                <p>متخصصون في تصميم وتركيب أدراج الرخام والزليج بدقة متناهية، مع ضمان المتانة والجمالية التي تليق بمشاريعكم.</p>
+            </div>
+        </div>
+
+        <!-- قسم الأشغال الكبرى -->
+        <div class="section-card">
+            <div class="card-content">
+                <h3>🚜 خدمات الأشغال الكبرى والبنية التحتية</h3>
+                <p>خبرة ميدانية في تجهيز الأساسات، حفر قنوات الصرف الصحي، وتهيئة الأوراش الكبرى باحترافية عالية.</p>
+            </div>
+        </div>
+    </div>
+
     <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل عبر واتساب</a>
 </div>
-<script>
-    // هاد الكود كيجيب البيانات من الـ LocalStorage ديال هاد النطاق
-    window.addEventListener('storage', () => location.reload());
-    const services = JSON.parse(localStorage.getItem('siteServices') || '[]');
-    const list = document.getElementById('services-list');
-    
-    if(services.length > 0) {
-        services.forEach(s => {
-            list.innerHTML += `<div class="section-card">
-                ${s.img ? `<img src="${s.img}">` : ''}
-                <h3>${s.title}</h3>
-                <p>${s.desc}</p>
-            </div>`;
-        });
-    } else {
-        list.innerHTML = '<p>جاري تحميل البيانات...</p>';
-    }
-</script>
 </body>
 </html>
