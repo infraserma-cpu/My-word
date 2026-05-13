@@ -1,19 +1,13 @@
-backend:
-  name: git-gateway
-  branch: main
-local_backend: true
-
-media_folder: "images"
-public_folder: "/images"
-
-collections:
-  - name: "projects"
-    label: "المشاريع"
-    folder: "projects"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "عنوان المشروع", name: "title", widget: "string" }
-      - { label: "تاريخ المشروع", name: "date", widget: "datetime" }
-      - { label: "صورة المشروع", name: "image", widget: "image" }
-      - { label: "وصف العمل", name: "body", widget: "markdown" }
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- هاد السطر هو اللي كيمسح الشاشة البيضاء ويجيب اللوحة -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</body>
+</html>
