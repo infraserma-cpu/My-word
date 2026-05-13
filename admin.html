@@ -17,55 +17,37 @@
 <body>
     <div class="box">
         <h2>🖼️ تغيير خلفية الموقع</h2>
-        <input type="text" id="bg-url" placeholder="رابط صورة الخلفية (Direct Link)">
+        <input type="text" id="bg-url" placeholder="رابط صورة الخلفية">
         <button class="btn-bg" onclick="saveBg()">تحديث الخلفية</button>
-        
         <hr>
-
-        <h2>🏗️ إضافة قسم جديد (خدمة)</h2>
-        <input type="text" id="s-title" placeholder="عنوان الخدمة (مثلا: تركيب الرخام)">
+        <h2>🏗️ إضافة خدمة جديدة (قسم)</h2>
+        <input type="text" id="s-title" placeholder="عنوان الخدمة (مثلاً: حفر الآبار)">
         <textarea id="s-desc" rows="3" placeholder="شرح بسيط للخدمة..."></textarea>
-        <input type="text" id="s-img" placeholder="رابط صورة القسم (من ImgBB)">
+        <input type="text" id="s-img" placeholder="رابط صورة الخدمة من ImgBB">
         <button class="btn-add" onclick="addService()">إضافة القسم للموقع</button>
-
-        <button class="btn-clear" onclick="clearServices()">🗑️ مسح جميع الأقسام والبدء من جديد</button>
+        <button class="btn-clear" onclick="clearServices()">🗑️ مسح جميع الأقسام</button>
         <br><br>
-        <a href="index.html" style="color:#666;">الرجوع للمعاينة</a>
+        <a href="index.html" style="color:#666;">الرجوع للموقع</a>
     </div>
-
     <script>
         function saveBg() {
-            const url = document.getElementById('bg-url').value;
-            if(url) {
-                localStorage.setItem('siteBg', url);
-                alert("✅ تم حفظ الخلفية!");
-            }
+            localStorage.setItem('siteBg', document.getElementById('bg-url').value);
+            alert("تم حفظ الخلفية!");
         }
-
         function addService() {
+            const services = JSON.parse(localStorage.getItem('siteServices') || '[]');
             const title = document.getElementById('s-title').value;
             const desc = document.getElementById('s-desc').value;
             const img = document.getElementById('s-img').value;
-
             if(title && desc) {
-                const services = JSON.parse(localStorage.getItem('siteServices') || '[]');
                 services.push({ title, desc, img });
                 localStorage.setItem('siteServices', JSON.stringify(services));
-                alert("✅ تمت إضافة القسم بنجاح!");
-                // تفريغ الخانات
-                document.getElementById('s-title').value = '';
-                document.getElementById('s-desc').value = '';
-                document.getElementById('s-img').value = '';
-            } else {
-                alert("عافاك عمر العنوان والوصف!");
-            }
-        }
-
-        function clearServices() {
-            if(confirm("واش بصح بغيتي تمسح كاع الأقسام؟")) {
-                localStorage.removeItem('siteServices');
+                alert("✅ زاد القسم بنجاح!");
                 location.reload();
-            }
+            } else { alert("عمر العنوان والوصف!"); }
+        }
+        function clearServices() {
+            if(confirm("تمسح كولشي؟")) { localStorage.removeItem('siteServices'); location.reload(); }
         }
     </script>
 </body>
