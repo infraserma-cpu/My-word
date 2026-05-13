@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head>
-<body>
-  <!-- هاد السطر هو اللي كيمسح الشاشة البيضاء ويجيب اللوحة -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</body>
-</html>
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "projects"
+    label: "المشاريع"
+    folder: "projects"
+    create: true
+    fields:
+      - { label: "عنوان المشروع", name: "title", widget: "string" }
+      - { label: "وصف العمل", name: "body", widget: "markdown" }
+      
