@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STE INFRASERMA</title>
+    <title>STE INFRASERMA - Infrastructures Service Maroc</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
             margin: 0; 
-            /* تصويرة الشانطي في الخلفية */
-            background: url('https://infraserma.netlify.app/img/background.jpg') no-repeat center center fixed; 
+            background: #111 url('https://infraserma.netlify.app/img/background.jpg') no-repeat center center fixed; 
             background-size: cover; 
             color: white; 
             text-align: center; 
         }
         .overlay { 
-            background: rgba(0, 0, 0, 0.7); 
+            background: rgba(0, 0, 0, 0.75); 
             min-height: 100vh; 
             padding: 20px; 
             display: flex; 
@@ -23,58 +22,57 @@
             align-items: center; 
         }
         
-        /* إطار اللوغو الأبيض مع الرافعة */
+        /* إطار اللوغو الأبيض كما في الصورة 1000069778_2.jpg */
         .logo-box { 
             background: white; 
             padding: 10px; 
             border-radius: 15px; 
             border: 4px solid #ffcc00; 
             margin-top: 20px; 
-            width: 160px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 150px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
-        .logo-box img { width: 100%; height: auto; display: block; }
+        .logo-box img { width: 100%; height: auto; border-radius: 5px; }
 
-        h1 { color: #ffcc00; font-size: 2.2em; margin: 15px 0 5px 0; font-weight: bold; }
-        .subtitle { font-size: 1.1em; margin-bottom: 30px; }
+        h1 { color: #ffcc00; font-size: 2em; margin: 15px 0 5px 0; text-transform: uppercase; }
+        .subtitle { font-size: 1em; margin-bottom: 25px; opacity: 0.9; }
 
-        /* البطاقات الملونة بحال الصور */
         .section-card { 
             background: #1a2634; 
-            margin: 12px 0; 
-            padding: 20px; 
-            border-radius: 15px; 
+            margin: 10px 0; 
+            padding: 18px; 
+            border-radius: 12px; 
             width: 90%; 
-            max-width: 450px; 
-            border-right: 10px solid #ffcc00; 
+            max-width: 400px; 
+            border-right: 8px solid #ffcc00; 
             text-align: right; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.4); 
         }
-        .section-card h3 { color: #ffcc00; margin: 0 0 10px 0; font-size: 1.3em; }
-        .section-card p { margin: 0; line-height: 1.6; font-size: 1em; color: #ddd; }
+        .section-card h3 { color: #ffcc00; margin: 0 0 8px 0; font-size: 1.2em; }
+        .section-card p { margin: 0; line-height: 1.5; font-size: 0.95em; color: #eee; }
 
+        /* زر الواتساب بالرقم الجديد */
         .btn-whatsapp { 
             background-color: #2ecc71; 
             color: white; 
-            padding: 18px 35px; 
+            padding: 15px 35px; 
             border-radius: 50px; 
             text-decoration: none; 
             font-weight: bold; 
-            font-size: 1.2em; 
+            font-size: 1.1em; 
             margin: 25px 0; 
             display: inline-block; 
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
         }
         
-        .footer { font-size: 0.9em; opacity: 0.8; margin-top: 10px; }
-        
-        /* الحفاظ على لوحة التحكم */
-        .admin-link { position: fixed; bottom: 10px; right: 10px; color: rgba(255,255,255,0.3); text-decoration: none; font-size: 10px; }
+        .footer { font-size: 0.85em; opacity: 0.7; padding-bottom: 20px; }
     </style>
 </head>
 <body>
 <div class="overlay">
     <div class="logo-box">
-        <img src="https://infraserma.netlify.app/img/logo.png" alt="Infraserma Logo">
+        <!-- اللوغو ديال الرافعة -->
+        <img src="https://infraserma.netlify.app/img/logo.png" alt="STE INFRASERMA">
     </div>
     
     <h1>STE INFRASERMA</h1>
@@ -82,28 +80,25 @@
 
     <div class="section-card">
         <h3>🚜 قسم التجهيز والحفر</h3>
-        <p>متخصصون في حفر وتجهيز قنوات الصرف الصحي (القوادس) وبناء البنية التحتية الأساسية للمشاريع العمرانية والطرق.</p>
+        <p>متخصصون في حفر وتجهيز قنوات الصرف الصحي (القوادس) وبناء البنية التحتية الأساسية.</p>
     </div>
 
     <div class="section-card">
         <h3>🏗️ الأشغال الكبرى والخرسانة</h3>
-        <p>تنفيذ مشاريع البناء والخرسانة المسلحة (Béton armé) مع الالتزام بأعلى المعايير التقنية والهندسية.</p>
+        <p>تنفيذ مشاريع البناء والخرسانة المسلحة (Béton armé) بأعلى المعايير التقنية.</p>
     </div>
 
     <div class="section-card">
         <h3>🏛️ الرخام والتشطيبات الفاخرة</h3>
-        <p>تركيب الرخام والزليج الفاسي الأصيل للأدراج والواجهات، نجمع بين الدقة المتناهية والجمالية المغربية العريقة.</p>
+        <p>تركيب الرخام والزليج الفاسي الأصيل للأدراج والواجهات بلمسة فنية عريقة.</p>
     </div>
 
+    <!-- الرابط بالرقم الجديد 0661680524 -->
     <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل مع الإدارة للطلب أو الاستفسار</a>
 
     <div class="footer">
-        © Infraserma 2026 - جميع الحقوق محفوظة<br>
-        لشركة Infrastructures Service Maroc
+        © Infraserma 2026 - جميع الحقوق محفوظة
     </div>
 </div>
-
-<!-- زر مخفي للدخول للوحة التحكم -->
-<a href="/admin" class="admin-link">Dashboard</a>
 </body>
 </html>
