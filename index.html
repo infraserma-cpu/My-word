@@ -8,8 +8,7 @@
         body { 
             font-family: Arial, sans-serif; 
             margin: 0; 
-            /* خلفية بديلة مضمونة الخدمة */
-            background: #1a1a1a url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed; 
+            background: #111 url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1350&auto=format&fit=crop') no-repeat center center fixed; 
             background-size: cover; 
             color: white; 
             text-align: center; 
@@ -23,24 +22,20 @@
             align-items: center; 
         }
         
-        /* إطار اللوغو */
+        /* إطار اللوغو الأبيض المحدث */
         .logo-box { 
             background: white; 
             padding: 10px; 
             border-radius: 15px; 
             border: 4px solid #ffcc00; 
             margin-top: 20px; 
-            width: 140px; 
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 160px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
-        /* استعملنا هنا رابط مباشر للوغو من موقعك القديم بشكل مختلف */
-        .logo-box img { width: 100%; height: auto; }
+        .logo-box img { width: 100%; height: auto; display: block; }
 
-        h1 { color: #ffcc00; font-size: 2.2em; margin: 15px 0 5px 0; }
-        .subtitle { font-size: 1.1em; margin-bottom: 25px; }
+        h1 { color: #ffcc00; font-size: 2.2em; margin: 15px 0 5px 0; font-weight: bold; }
+        .subtitle { font-size: 1.1em; margin-bottom: 25px; opacity: 0.9; }
 
         .section-card { 
             background: #1a2634; 
@@ -53,29 +48,31 @@
             text-align: right; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
         }
-        .section-card h3 { color: #ffcc00; margin: 0 0 10px 0; }
+        .section-card h3 { color: #ffcc00; margin: 0 0 10px 0; font-size: 1.3em; }
+        .section-card p { margin: 0; line-height: 1.6; font-size: 1em; color: #ddd; }
 
+        /* زر الواتساب بالرقم الصحيح */
         .btn-whatsapp { 
-            background-color: #25d366; 
+            background-color: #2ecc71; 
             color: white; 
-            padding: 18px 40px; 
+            padding: 18px 35px; 
             border-radius: 50px; 
             text-decoration: none; 
             font-weight: bold; 
             font-size: 1.2em; 
-            margin-top: 20px; 
+            margin: 25px 0; 
             display: inline-block; 
         }
         
-        .footer { font-size: 0.9em; opacity: 0.7; margin-top: 20px; }
-        .admin-link { position: fixed; bottom: 10px; right: 10px; color: rgba(255,255,255,0.2); text-decoration: none; font-size: 10px; }
+        .footer { font-size: 0.9em; opacity: 0.7; margin-top: 10px; }
+        .admin-link { position: fixed; bottom: 10px; right: 10px; color: rgba(255,255,255,0.1); text-decoration: none; font-size: 10px; }
     </style>
 </head>
 <body>
 <div class="overlay">
     <div class="logo-box">
-        <!-- اللوغو ديالك من الرابط الجديد -->
-        <img src="https://i.ibb.co/3ykMvS8/logo.png" alt="Infraserma Logo" onerror="this.src='https://infraserma.netlify.app/img/logo.png'">
+        <!-- الرابط المباشر للوغو الجديد -->
+        <img src="https://i.ibb.co/dJ0dGbG0/f7643c66-93d5-45ba-8c90-7ddd5b70250e-20250619-191428-0000.png" alt="Infraserma Logo">
     </div>
     
     <h1>STE INFRASERMA</h1>
@@ -88,16 +85,16 @@
 
     <div class="section-card">
         <h3>🏗️ الأشغال الكبرى والخرسانة</h3>
-        <p>تنفيذ مشاريع البناء والخرسانة المسلحة (Béton armé) مع الالتزام بأعلى المعايير.</p>
+        <p>تنفيذ مشاريع البناء والخرسانة المسلحة (Béton armé) مع الالتزام بأعلى المعايير التقنية.</p>
     </div>
 
     <div class="section-card">
         <h3>🏛️ الرخام والتشطيبات الفاخرة</h3>
-        <p>تركيب الرخام والزليج الفاسي الأصيل للأدراج والواجهات بلمسة مغربية عريقة.</p>
+        <p>تركيب الرخام والزليج الفاسي الأصيل للأدراج والواجهات بلمسة فنية عريقة.</p>
     </div>
 
-    <!-- الرقم الجديد 0661680524 -->
-    <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل معنا عبر واتساب</a>
+    <!-- الرقم الجديد المحدث 0661680524 -->
+    <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل مع الإدارة للطلب أو الاستفسار</a>
 
     <div class="footer">
         © 2026 Infraserma - جميع الحقوق محفوظة
