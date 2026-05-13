@@ -5,98 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STE INFRASERMA</title>
     <style>
-        /* الخلفية العامة للموقع بالصورة اللي خدمنا بها */
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            background: #111 url('https://i.ibb.co/6R0pY90/0714-WA0011.jpg') no-repeat center center fixed; 
-            background-size: cover; 
-            color: white; 
-            text-align: center; 
-        }
-        /* طبقة ضبابية باش تبان الكتابة واضحة */
-        .overlay { 
-            background: rgba(0, 0, 0, 0.75); 
-            min-height: 100vh; 
-            padding: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
-        /* إطار اللوغو */
-        .logo-box { 
-            background: white; 
-            padding: 10px; 
-            border-radius: 15px; 
-            border: 4px solid #ffcc00; 
-            margin-top: 20px; 
-            width: 130px; 
-        }
-        .logo-box img { width: 100%; }
-        h1 { color: #ffcc00; margin: 15px 0; font-size: 1.8em; }
-        
-        /* تصميم البطاقات (الأقسام) */
-        .section-card { 
-            background: #1a2634; 
-            margin: 15px 0; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            border-right: 8px solid #ffcc00; 
-            text-align: right; 
-            width: 100%; 
-            max-width: 450px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-        .section-card img { 
-            width: 100%; 
-            height: 200px; 
-            object-fit: cover; 
-        }
-        .card-content { padding: 15px; }
-        .card-content h3 { color: #ffcc00; margin: 0 0 10px 0; }
-        .card-content p { margin: 0; line-height: 1.5; color: #ddd; }
-
-        /* زر الواتساب */
-        .btn-whatsapp { 
-            background-color: #25d366; 
-            color: white; 
-            padding: 15px 30px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            margin: 20px 0; 
-            display: inline-block; 
-        }
+        body { font-family: Arial; margin: 0; background: #111 url('https://i.ibb.co/vSdwFyB/IMG-20190628-WA0020.jpg') no-repeat center center fixed; background-size: cover; color: white; text-align: center; }
+        .overlay { background: rgba(0, 0, 0, 0.7); min-height: 100vh; padding: 20px; }
+        .section-card { background: rgba(26, 38, 52, 0.9); margin: 15px auto; padding: 15px; border-radius: 15px; border-right: 8px solid #ffcc00; text-align: right; max-width: 450px; }
+        .section-card img { width: 100%; border-radius: 10px; }
+        .btn-whatsapp { background: #25d366; padding: 15px 30px; border-radius: 50px; color: white; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
     </style>
 </head>
 <body>
-<div class="overlay">
-    <!-- اللوغو ديال الشركة -->
-    <div class="logo-box">
-        <img src="https://i.ibb.co/dJ0dGbG0/f7643c66-93d5-45ba-8c90-7ddd5b70250e-20250619-191428-0000.png" alt="Infraserma">
-    </div>
-    
-    <h1>STE INFRASERMA</h1>
-    
-    <!-- القسم 1: الرخام والدروج -->
-    <div class="section-card">
-        <img src="https://i.ibb.co/6R0pY90/0714-WA0011.jpg" alt="تركيب الرخام">
-        <div class="card-content">
-            <h3>🏗️ تركيب الرخام والدرج الفاخر</h3>
-            <p>إتقان تام في تركيب الرخام والزليج لجميع أنواع الأدراج والمشاريع الكبرى بدقة متناهية.</p>
-        </div>
+    <div class="overlay">
+        <img src="https://i.ibb.co/dJ0dGbG0/f7643c66-93d5-45ba-8c90-7ddd5b70250e-20250619-191428-0000.png" width="100">
+        <h1>STE INFRASERMA</h1>
+        <div id="main-list"></div>
+        <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل عبر واتساب</a>
     </div>
 
-    <!-- القسم 2: الأشغال الكبرى -->
-    <div class="section-card">
-        <div class="card-content">
-            <h3>🚜 الأشغال الكبرى والحفر</h3>
-            <p>متخصصون في تجهيز البنية التحتية، حفر قنوات الصرف الصحي، وتهيئة الأوراش الكبرى باحترافية.</p>
-        </div>
-    </div>
-
-    <!-- زر التواصل المباشر -->
-    <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل عبر واتساب</a>
-</div>
+    <script>
+        // هاد الكود غيخليه يقرا السلعة بلا ما تحتاج حاسوب
+        function loadContent() {
+            const data = JSON.parse(localStorage.getItem('myInfrasermaData') || '[]');
+            const list = document.getElementById('main-list');
+            list.innerHTML = data.map(item => `
+                <div class="section-card">
+                    <img src="${item.img}">
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                </div>
+            `).join('');
+        }
+        loadContent();
+    </script>
 </body>
 </html>
