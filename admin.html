@@ -2,52 +2,20 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>إدارة الموقع - INFRASERMA</title>
-    <style>
-        body { font-family: Arial; padding: 15px; background: #f0f2f5; text-align: center; }
-        .box { background: white; padding: 20px; border-radius: 12px; max-width: 450px; margin: auto; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h2 { color: #333; font-size: 1.2em; border-bottom: 2px solid #ffcc00; padding-bottom: 5px; }
-        input, textarea { width: 95%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin: 5px 0; }
-        .btn-add { background: #2ecc71; color: white; }
-        .btn-bg { background: #ffcc00; color: #000; }
-        .btn-clear { background: #e74c3c; color: white; margin-top: 20px; }
-    </style>
+    <title>إدارة الموقع</title>
 </head>
-<body>
-    <div class="box">
-        <h2>🖼️ تغيير خلفية الموقع</h2>
-        <input type="text" id="bg-url" placeholder="رابط صورة الخلفية">
-        <button class="btn-bg" onclick="saveBg()">تحديث الخلفية</button>
-        <hr>
-        <h2>🏗️ إضافة خدمة جديدة (قسم)</h2>
-        <input type="text" id="s-title" placeholder="عنوان الخدمة (مثلاً: حفر الآبار)">
-        <textarea id="s-desc" rows="3" placeholder="شرح بسيط للخدمة..."></textarea>
-        <input type="text" id="s-img" placeholder="رابط صورة الخدمة من ImgBB">
-        <button class="btn-add" onclick="addService()">إضافة القسم للموقع</button>
-        <button class="btn-clear" onclick="clearServices()">🗑️ مسح جميع الأقسام</button>
-        <br><br>
-        <a href="index.html" style="color:#666;">الرجوع للموقع</a>
-    </div>
+<body style="text-align:center; padding:20px;">
+    <h2>إضافة خدمة</h2>
+    <input id="t" placeholder="العنوان"><br><br>
+    <textarea id="d" placeholder="الوصف"></textarea><br><br>
+    <input id="i" placeholder="رابط الصورة المباشر"><br><br>
+    <button onclick="save()">إضافة</button>
     <script>
-        function saveBg() {
-            localStorage.setItem('siteBg', document.getElementById('bg-url').value);
-            alert("تم حفظ الخلفية!");
-        }
-        function addService() {
-            const services = JSON.parse(localStorage.getItem('siteServices') || '[]');
-            const title = document.getElementById('s-title').value;
-            const desc = document.getElementById('s-desc').value;
-            const img = document.getElementById('s-img').value;
-            if(title && desc) {
-                services.push({ title, desc, img });
-                localStorage.setItem('siteServices', JSON.stringify(services));
-                alert("✅ زاد القسم بنجاح!");
-                location.reload();
-            } else { alert("عمر العنوان والوصف!"); }
-        }
-        function clearServices() {
-            if(confirm("تمسح كولشي؟")) { localStorage.removeItem('siteServices'); location.reload(); }
+        function save() {
+            const s = JSON.parse(localStorage.getItem('siteServices') || '[]');
+            s.push({ title: document.getElementById('t').value, desc: document.getElementById('d').value, img: document.getElementById('i').value });
+            localStorage.setItem('siteServices', JSON.stringify(s));
+            alert("تمت الإضافة! دابا سير للموقع.");
         }
     </script>
 </body>
