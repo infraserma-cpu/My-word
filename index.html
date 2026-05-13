@@ -5,26 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STE INFRASERMA</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background: #2c2c2c url('https://infraserma.netlify.app/img/background.jpg') no-repeat center center fixed; background-size: cover; color: white; text-align: center; }
-        .overlay { background: rgba(0, 0, 0, 0.8); min-height: 100vh; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            /* تصويرة الشانطي في الخلفية */
+            background: url('https://infraserma.netlify.app/img/background.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+            color: white; 
+            text-align: center; 
+        }
+        .overlay { 
+            background: rgba(0, 0, 0, 0.7); 
+            min-height: 100vh; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
         
-        /* إرجاع إطار اللوغو الأبيض واللوغو */
-        .logo-box { background: white; padding: 10px; border-radius: 15px; border: 4px solid #ffcc00; margin-top: 20px; width: 150px; }
-        .logo-box img { width: 100%; height: auto; }
+        /* إطار اللوغو الأبيض مع الرافعة */
+        .logo-box { 
+            background: white; 
+            padding: 10px; 
+            border-radius: 15px; 
+            border: 4px solid #ffcc00; 
+            margin-top: 20px; 
+            width: 160px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .logo-box img { width: 100%; height: auto; display: block; }
 
-        h1 { color: #ffcc00; font-size: 2.2em; margin: 15px 0 5px 0; }
-        .subtitle { font-size: 1.1em; margin-bottom: 25px; }
+        h1 { color: #ffcc00; font-size: 2.2em; margin: 15px 0 5px 0; font-weight: bold; }
+        .subtitle { font-size: 1.1em; margin-bottom: 30px; }
 
-        .section-card { background: #1a2634; margin: 10px 0; padding: 20px; border-radius: 15px; width: 95%; max-width: 450px; border-right: 8px solid #ffcc00; text-align: right; box-shadow: 0 8px 15px rgba(0,0,0,0.5); }
-        .section-card h3 { color: #ffcc00; margin: 0 0 8px 0; font-size: 1.3em; }
-        .section-card p { margin: 0; line-height: 1.5; font-size: 1em; color: #eee; }
+        /* البطاقات الملونة بحال الصور */
+        .section-card { 
+            background: #1a2634; 
+            margin: 12px 0; 
+            padding: 20px; 
+            border-radius: 15px; 
+            width: 90%; 
+            max-width: 450px; 
+            border-right: 10px solid #ffcc00; 
+            text-align: right; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
+        }
+        .section-card h3 { color: #ffcc00; margin: 0 0 10px 0; font-size: 1.3em; }
+        .section-card p { margin: 0; line-height: 1.6; font-size: 1em; color: #ddd; }
 
-        .btn-contact { background-color: #25d366; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2em; margin-top: 25px; display: inline-block; }
+        .btn-whatsapp { 
+            background-color: #2ecc71; 
+            color: white; 
+            padding: 18px 35px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.2em; 
+            margin: 25px 0; 
+            display: inline-block; 
+        }
+        
+        .footer { font-size: 0.9em; opacity: 0.8; margin-top: 10px; }
+        
+        /* الحفاظ على لوحة التحكم */
+        .admin-link { position: fixed; bottom: 10px; right: 10px; color: rgba(255,255,255,0.3); text-decoration: none; font-size: 10px; }
     </style>
 </head>
 <body>
 <div class="overlay">
-    <!-- اللوغو ديال الرافعة كيرجع هنا -->
     <div class="logo-box">
         <img src="https://infraserma.netlify.app/img/logo.png" alt="Infraserma Logo">
     </div>
@@ -47,7 +95,15 @@
         <p>تركيب الرخام والزليج الفاسي الأصيل للأدراج والواجهات، نجمع بين الدقة المتناهية والجمالية المغربية العريقة.</p>
     </div>
 
-    <a href="https://wa.me/212661680524" class="btn-contact">تواصل مع الإدارة للطلب أو الاستفسار</a>
+    <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل مع الإدارة للطلب أو الاستفسار</a>
+
+    <div class="footer">
+        © Infraserma 2026 - جميع الحقوق محفوظة<br>
+        لشركة Infrastructures Service Maroc
+    </div>
 </div>
+
+<!-- زر مخفي للدخول للوحة التحكم -->
+<a href="/admin" class="admin-link">Dashboard</a>
 </body>
 </html>
