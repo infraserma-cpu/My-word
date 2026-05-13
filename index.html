@@ -3,27 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infraserma - البنية التحتية والأشغال الكبرى</title>
+    <title>STE INFRASERMA - Infrastructures Service Maroc</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: #f0f2f5; color: #333; }
-        header { background-color: #1a1a1a; color: #ffcc00; padding: 40px 20px; text-align: center; border-bottom: 5px solid #ffcc00; }
-        .logo { font-size: 3em; font-weight: bold; }
-        .tagline { color: #fff; font-size: 1.2em; margin-top: 10px; }
-        .container { max-width: 800px; margin: 30px auto; padding: 20px; }
-        .project-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border-right: 8px solid #ffcc00; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h3 { color: #d35400; margin-top: 0; }
+        body { font-family: Arial, sans-serif; margin: 0; background: url('https://infraserma.netlify.app/img/background.jpg') no-repeat center center fixed; background-size: cover; color: white; text-align: center; }
+        .overlay { background: rgba(0, 0, 0, 0.7); min-height: 100vh; padding: 20px; }
+        header { padding: 30px; }
+        .logo-box { background: white; padding: 15px; display: inline-block; border-radius: 15px; border: 4px solid #ffcc00; margin-bottom: 20px; }
+        .logo-box img { max-width: 180px; }
+        h1 { color: #ffcc00; font-size: 2.5em; margin: 10px 0; text-shadow: 2px 2px 4px #000; }
+        .tagline { font-size: 1.2em; margin-bottom: 30px; }
+        
+        /* تصميم البطاقات بحال اللي في الصور */
+        .project-card { 
+            background: #1e2a3a; 
+            margin: 20px auto; 
+            padding: 25px; 
+            border-radius: 15px; 
+            max-width: 500px; 
+            border-right: 10px solid #ffcc00; 
+            text-align: right;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .project-card h3 { color: #ffcc00; font-size: 1.5em; margin-top: 0; }
+        .project-card p { line-height: 1.6; font-size: 1.1em; color: #e0e0e0; }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3em;
+            display: inline-block;
+            margin-top: 40px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+        footer { margin-top: 50px; font-size: 0.9em; opacity: 0.8; }
     </style>
 </head>
 <body>
-<header>
-    <div class="logo">INFRASERMA</div>
-    <div class="tagline">الريادة في تجهيز البنية التحتية والأشغال الكبرى</div>
-</header>
-<div class="container">
-    <div class="project-card">
-        <h3>تجهيز البنية التحتية المتكاملة - فاس</h3>
-        <p>نقدم خبرتنا في التجهيز الكامل: شبكات الماء الصالح للشرب، الصرف الصحي، الكهرباء، والإنارة العمومية، وتهيئة الطرق.</p>
+<div class="overlay">
+    <header>
+        <div class="logo-box">
+            <!-- اللوغو ديالك غادي يبان هنا -->
+            <img src="https://infraserma.netlify.app/img/logo.png" alt="Infraserma Logo">
+        </div>
+        <h1>STE INFRASERMA</h1>
+        <p class="tagline">Infrastructures Service Maroc</p>
+    </header>
+
+    <div id="projects-container">
+        <!-- هنا غادي يبانو المشاريع اللي كتزيد من لوحة التحكم تلقائياً -->
+        <h2>خدماتنا ومشاريعنا</h2>
+        <p>جاري تحميل المشاريع...</p>
     </div>
+
+    <a href="https://wa.me/212661680524" class="btn-whatsapp">تواصل مع الإدارة للطلب أو الاستفسار</a>
+
+    <footer>
+        © Infraserma 2026 - جميع الحقوق محفوظة<br>
+        L'excellence dans les infrastructures
+    </footer>
 </div>
+
+<script>
+    // هاد الكود كيجبد المشاريع اللي سجلتي ف لوحة التحكم (Markdown) وكيحطها ف الصفحة
+    fetch('/projects/index.json').then(res => res.json()).then(data => {
+        const container = document.getElementById('projects-container');
+        container.innerHTML = '';
+        data.forEach(p => {
+            container.innerHTML += `
+                <div class="project-card">
+                    <h3>${p.title}</h3>
+                    <p>${p.body}</p>
+                </div>
+            `;
+        });
+    }).catch(() => {
+        // إيلا مازال ما قادينا ملف JSON، غادي نخليو هاد الوصف مؤقتاً
+        document.getElementById('projects-container').innerHTML = `
+            <div class="project-card">
+                <h3>🚜 قسم التجهيز والحفر</h3>
+                <p>متخصصون في حفر وتجهيز قنوات الصرف الصحي (القوادس) وبناء البنية التحتية الأساسية.</p>
+            </div>
+            <div class="project-card">
+                <h3>🏗️ الأشغال الكبرى والخرسانة</h3>
+                <p>تنفيذ مشاريع البناء والخرسانة المسلحة (Béton armé) مع الالتزام بأعلى المعايير.</p>
+            </div>
+        `;
+    });
+</script>
 </body>
 </html>
